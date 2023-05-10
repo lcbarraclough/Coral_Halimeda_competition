@@ -25,8 +25,8 @@ plot(harbour_m)
 coral_m1 <- lmer(Total_hard_CC. ~ Halimeda_cover. +
                    (1|Depth_m),
                  data = coral)
-summary(coral_m1) #don't know why this won't work
-
+summary(coral_m1)#don't know why this won't work
+plot(coral_m1)
 #     add in site as another random effect
 coral_m2 <- lmer(Total_hard_CC. ~ Halimeda_cover. +
                    (1|Depth_m/ Site_Name),
@@ -35,4 +35,3 @@ summary(coral_m2)
 
 plot(coral_m2) #don't know why this won't work
 
-# q

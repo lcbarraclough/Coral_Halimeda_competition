@@ -90,7 +90,7 @@ plot(basic.lm, which = 4)
                           y = Total_hard_CC.,
                           colour = Depth_m), data = coral) + 
     geom_point() + 
-    facet_wrap(~ Site_Name) + # create a facet for Site 
+    facet_wrap(~ Site_Name) + # create a facet for each Site 
     xlab("Halimeda cover (%)") + 
     ylab("Hard coral cover (%)"))
 
