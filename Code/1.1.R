@@ -5,7 +5,7 @@
 ## Modelling competition between hard coral and Halimeda in the Maldives
 ## RQ 1: How do hard coral and Halimeda spp. interact in the Magoodhoo island
 ## reefs?
----------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------
 
 ## Workflow:
 ### 1. Download programmes and load csv into dataframe ----

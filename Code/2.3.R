@@ -21,7 +21,8 @@ coral_a$Depth_m <- as.character(coral_a$Depth_m)
     theme_classic() +
     geom_point(alpha = 1) +
     xlab("Halimeda cover (%)") +
-    ylab("Platygyra cover (%)"))
+    ylab("Platygyra cover (%)") +
+    geom_smooth())
     #geom_smooth(method = "lm"))
 #ggsave(platygyra_plot, file = "Outputs/platygyra_plot.png")
 
@@ -100,9 +101,9 @@ theme_coral <- function(){
                              units = ,"cm"),
           legend.position = "none",
           panel.grid = element_blank(),
-          axis.text = element_text(size = 10),
-          axis.title = element_text(size = 10),
-          plot.title = element_text(size = 14, hjust = 0.5, face = "bold"))
+          axis.text = element_text(size = 9),
+          axis.title = element_text(size = 9),
+          plot.title = element_text(size = 11, hjust = 0.5, face = "bold"))
 }
 
 
@@ -118,10 +119,13 @@ theme_coral <- function(){
   pocillopora_plot + ggtitle("(e)") +
     theme_coral(),
   favia_plot + ggtitle("(f)") +
-    theme(plot.margin = unit(c(0.2,0.2,0.2,0.2), units = ,"cm"),
+    theme(plot.margin = unit(c(0.2,0.2,0.2,0.2),
+                             units = ,"cm"),
+          legend.position = "right",
           panel.grid = element_blank(),
-          axis.text = element_text(size = 10),
-          axis.title = element_text(size = 10),
-          plot.title = element_text(size = 14, hjust = 0.5, face = "bold")),
+          axis.text = element_text(size = 9),
+          axis.title = element_text(size = 9),
+          plot.title = element_text(size = 11, hjust = 0.5, face = "bold")),
   ncol = 3))
-#ggsave(coral_panel, file = "Outputs/coral_panel.png")
+ggsave(coral_panel, file = "Outputs/coral_panel.png", width = 15, height = 15)
+
