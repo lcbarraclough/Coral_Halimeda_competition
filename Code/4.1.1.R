@@ -42,6 +42,8 @@ reefs$Depth_m <- as.character(reefs$Depth_m)
          panel.grid = element_blank(),                                          
          plot.margin = unit(c(1,1,1,1), units = , "cm")))
 
+## ANOVA models
+
 anova.CCT <- aov(CCT ~ Site,
                  data = reefs)
 summary(anova.CCT)
@@ -54,13 +56,23 @@ anova.depth <- reefs %>%
 summary(anova.depth)
 plot(anova.depth)
 
+anova.porites_rus <- aov(Porites_rus ~ Site_Name,
+                         data = coral_a)
+summary(anova.porites_rus)
+
+anova.porites_rusgrpd <- aov(Porites_rus ~ Depth_m,
+                               data = coral_a %>% 
+                               group_by(Site_Name))
+summary(anova.porites_rusgrpd)
+
+
 ## Focus on Porites rus. ----
 #   Firstly plot this as a bar graph
 # reorder the data so the depths are more logical
 reefs$Depth_m <- factor(reefs$Depth_m,
                         levels = c("3", "7", "12"),
                         labels = c("3", "7", "12"))
-cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#7B68EE")
                        
 (bar.rus <- ggplot(reefs, aes(x = Site,
                            y = Porites_rus,
